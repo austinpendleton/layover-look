@@ -1,62 +1,45 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import Login from "./components/Login";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import ReviewForm from "./components/ReviewForm";
-import ProtectedRoute from "./components/ProtectedRoute";
 import ReviewList from "./components/ReviewList";
+import ReviewDetail from "./components/ReviewDetail";
+import Login from "./components/Login";
+// import Register from './components/auth/Register';
+import Home from "./components/Home"; // Import Home component
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const App = () => {
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      axios.defaults.headers.common["x-auth-token"] = token;
-    } else {
-      delete axios.defaults.headers.common["x-auth-token"];
-    }
-  }, []);
-
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        {/* Route for the root path */}
+        <Route path="/" element={<Home />} />
 
+        {/* Protected routes require authentication */}
         <Route
           path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute component={Dashboard} />}
         />
         <Route
           path="/submit-review"
-          element={
-            <ProtectedRoute>
-              <ReviewForm />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute component={ReviewForm} />}
         />
         <Route
           path="/reviews"
-          element={
-            <ProtectedRoute>
-              <ReviewList />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute component={ReviewList} />}
         />
         <Route
           path="/reviews/:id"
-          element={
-            <ProtectedRoute>
-              <ReviewDetail />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute component={ReviewDetail} />}
         />
+
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/register" element={<Register />} /> */}
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
