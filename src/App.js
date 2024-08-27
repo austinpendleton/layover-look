@@ -8,36 +8,40 @@ import Login from "./components/Login";
 // import Register from './components/auth/Register';
 import Home from "./components/Home"; // Import Home component
 import ProtectedRoute from "./components/ProtectedRoute";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* Route for the root path */}
-        <Route path="/" element={<Home />} />
+      <div>
+        <NavBar />
+        <Routes>
+          {/* Route for the root path */}
+          <Route path="/" element={<Home />} />
 
-        {/* Protected routes require authentication */}
-        <Route
-          path="/dashboard"
-          element={<ProtectedRoute component={Dashboard} />}
-        />
-        <Route
-          path="/submit-review"
-          element={<ProtectedRoute component={ReviewForm} />}
-        />
-        <Route
-          path="/reviews"
-          element={<ProtectedRoute component={ReviewList} />}
-        />
-        <Route
-          path="/reviews/:id"
-          element={<ProtectedRoute component={ReviewDetail} />}
-        />
+          {/* Protected routes require authentication */}
+          <Route
+            path="/dashboard"
+            element={<ProtectedRoute component={Dashboard} />}
+          />
+          <Route
+            path="/submit-review"
+            element={<ProtectedRoute component={ReviewForm} />}
+          />
+          <Route
+            path="/reviews"
+            element={<ProtectedRoute component={ReviewList} />}
+          />
+          <Route
+            path="/reviews/:id"
+            element={<ProtectedRoute component={ReviewDetail} />}
+          />
 
-        {/* Public routes */}
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} /> */}
-      </Routes>
+          {/* Public routes */}
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+        </Routes>
+      </div>
     </Router>
   );
 }
