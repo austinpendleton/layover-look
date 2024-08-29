@@ -6,8 +6,8 @@ import ReviewList from "./components/ReviewList";
 import ReviewDetail from "./components/ReviewDetail";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
