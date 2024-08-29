@@ -1,30 +1,24 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-
   return (
-    <nav style={{ padding: "1rem", backgroundColor: "#f8f9fa" }}>
-      <ul style={{ listStyle: "none", display: "flex", gap: "1rem" }}>
+    <nav>
+      <ul>
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <NavLink to="/">Dashboard</NavLink>
         </li>
         <li>
-          <Link to="/reviews">Reviews</Link>
+          <NavLink to="/reviews">Reviews</NavLink>
         </li>
         <li>
-          <Link to="/submit-review">Submit Review</Link>
+          <NavLink to="/submit-review">Submit Review</NavLink>
         </li>
         <li>
-          <button onClick={handleLogout} style={{ cursor: "pointer" }}>
-            Logout
-          </button>
+          <NavLink to="/login">Login</NavLink>
+        </li>
+        <li>
+          <NavLink to="/register">Register</NavLink>
         </li>
       </ul>
     </nav>

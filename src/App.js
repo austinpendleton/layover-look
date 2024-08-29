@@ -4,44 +4,30 @@ import Dashboard from "./components/Dashboard";
 import ReviewForm from "./components/ReviewForm";
 import ReviewList from "./components/ReviewList";
 import ReviewDetail from "./components/ReviewDetail";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
-import ProtectedRoute from "./components/ProtectedRoute";
 import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 function App() {
   return (
     <Router>
-      <div>
-        <NavBar />
-        <Routes>
-          {/* Route for the root path */}
-          <Route path="/" element={<Home />} />
-
-          {/* Protected routes require authentication */}
-          <Route
-            path="/dashboard"
-            element={<ProtectedRoute component={Dashboard} />}
-          />
-          <Route
-            path="/submit-review"
-            element={<ProtectedRoute component={ReviewForm} />}
-          />
-          <Route
-            path="/reviews"
-            element={<ProtectedRoute component={ReviewList} />}
-          />
-          <Route
-            path="/reviews/:id"
-            element={<ProtectedRoute component={ReviewDetail} />}
-          />
-
-          {/* Public routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/reviews" element={<ReviewList />} />
+        <Route path="/review/:id" element={<ReviewDetail />} />
+        <Route
+          path="/submit-review"
+          element={
+            <ProtectedRoute>
+              <ReviewForm />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
