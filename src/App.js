@@ -5,8 +5,8 @@ import ReviewForm from "./components/ReviewForm";
 import ReviewList from "./components/ReviewList";
 import ReviewDetail from "./components/ReviewDetail";
 import Login from "./components/Login";
-// import Register from './components/auth/Register';
-import Home from "./components/Home"; // Import Home component
+import Register from "./components/Register";
+import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NavBar from "./components/NavBar";
 
@@ -39,7 +39,7 @@ function App() {
 
           {/* Public routes */}
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
