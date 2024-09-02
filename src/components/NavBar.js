@@ -1,26 +1,35 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import "../blocks/NavBar.css";
 
 const NavBar = () => {
   return (
     <nav>
-      <ul>
+      {/* <div className="navbar-logo">
+        <Link to="/">
+          <img src={logo} alt="Layover Look Logo" />
+        </Link>
+      </div> */}
+      <ul className="navbar-links">
         <li>
-          <NavLink to="/">Dashboard</NavLink>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <NavLink to="/reviews">Reviews</NavLink>
+          <Link to="/reviews">Reviews</Link>
         </li>
         <li>
-          <NavLink to="/submit-review">Submit Review</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
-        <li>
-          <NavLink to="/register">Register</NavLink>
+          <Link to="/profile">Profile</Link>
         </li>
       </ul>
+      <div className="navbar-auth">
+        <Link to="/login" className="btn">
+          Login
+        </Link>
+        <Link to="/register" className="btn">
+          Register
+        </Link>
+      </div>
     </nav>
   );
 };
