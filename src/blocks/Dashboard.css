@@ -2,14 +2,14 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .dashboard h1 {
   font-size: 32px;
-  color: #333;
+  color: #333333;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -27,7 +27,7 @@
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
-  color: white;
+  color: #ffffff;
   transition: background-color 0.3s ease;
 }
 
@@ -49,7 +49,7 @@
 
 .dashboard h2 {
   font-size: 28px;
-  color: #555;
+  color: #666666;
   margin-top: 40px;
   margin-bottom: 20px;
   text-align: center;
@@ -57,7 +57,7 @@
 
 .dashboard p {
   font-size: 18px;
-  color: #666;
+  color: #999999;
   text-align: center;
 }
 
@@ -72,16 +72,16 @@ ul li {
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  background-color: #f9f9f9;
 }
 
 ul li:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Review links */
 ul li a {
   text-decoration: none;
-  color: #333;
+  color: #333333;
   font-weight: bold;
   display: block;
 }
