@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/lllogo.png";
 
 import "../blocks/NavBar.css";
 
 const NavBar = () => {
   return (
     <nav>
-      {/* <div className="navbar-logo">
+      <div className="navbar-logo">
         <Link to="/">
           <img src={logo} alt="Layover Look Logo" />
         </Link>
-      </div> */}
+      </div>
       <ul className="navbar-links">
         <li>
           <Link to="/dashboard">Dashboard</Link>
