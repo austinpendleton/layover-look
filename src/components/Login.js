@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../images/lllogo.png";
+import "../blocks/Login.css";
 
 const LogIn = () => {
   const [formData, setFormData] = useState({
