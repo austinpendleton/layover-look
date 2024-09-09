@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import "./Register.css";
+import logo from "../images/lllogo.png";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +12,6 @@ const Register = () => {
     password2: "",
   });
 
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) =>
@@ -20,79 +19,82 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     if (password !== password2) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
+      console.error("Passwords do not match");
+    } else {
+      const newUser = {
+        name,
+        email,
+        password,
       };
 
-      const body = JSON.stringify({ name, email, password });
-
-      const res = await axios.post("/api/users/register", body, config);
-
-      localStorage.setItem("token", res.data.token);
-
-      navigate("/dashboard");
-    } catch (err) {
-      console.error(err.response.data);
-      setError("Registration failed. Please try again.");
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        const body = JSON.stringify(newUser);
+        const res = await axios.post("/api/users", body, config);
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
     }
   };
 
   return (
-    <div>
+    <div className="register-container">
+      <div className="logo-container">
+        <img src={logo} alt="Layover Look logo" className="register-logo" />
+      </div>
       <h1>Register</h1>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
+      <form className="form" onSubmit={onSubmit}>
+        <div className="form-group">
           <input
             type="text"
+            placeholder="Name"
             name="name"
             value={name}
             onChange={onChange}
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="form-group">
           <input
             type="email"
+            placeholder="Email Address"
             name="email"
             value={email}
             onChange={onChange}
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="form-group">
           <input
             type="password"
+            placeholder="Password"
             name="password"
             value={password}
             onChange={onChange}
-            required
+            minLength="6"
           />
         </div>
-        <div>
-          <label htmlFor="password2">Confirm Password</label>
+        <div className="form-group">
           <input
             type="password"
+            placeholder="Confirm Password"
             name="password2"
             value={password2}
             onChange={onChange}
-            required
+            minLength="6"
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Register</button>
+        <input type="submit" className="btn btn-primary" value="Register" />
       </form>
+      <p>
+        Already have an account? <Link to="/login">Sign In</Link>
+      </p>
     </div>
   );
 };
