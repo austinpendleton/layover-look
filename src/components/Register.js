@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./Register.css";
+import "../blocks/Register.css";
 import logo from "../images/lllogo.png";
 
 const Register = () => {
