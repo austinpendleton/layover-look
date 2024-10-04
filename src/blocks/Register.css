@@ -17,35 +17,35 @@
   text-align: center;
 }
 
-.register-container h1 {
+.register-logo {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+h1 {
   font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
 
-.register-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.register-container label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  text-align: left;
-  color: #555;
-}
-
-.register-container input {
-  padding: 10px;
+.form-group {
   margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   color: #333;
 }
 
-.register-container button {
-  padding: 10px 15px;
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -55,14 +55,23 @@
   transition: background-color 0.3s;
 }
 
-.register-container button:hover {
+input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.register-container .error {
-  color: red;
+p {
   font-size: 14px;
-  margin-bottom: 10px;
+  color: #555;
+  margin-top: 10px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -70,15 +79,17 @@
     padding: 15px;
   }
 
-  .register-container h1 {
+  h1 {
     font-size: 22px;
   }
 
-  .register-container input {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
     font-size: 14px;
   }
 
-  .register-container button {
+  input[type="submit"] {
     font-size: 14px;
   }
 }
@@ -88,15 +99,17 @@
     padding: 10px;
   }
 
-  .register-container h1 {
+  h1 {
     font-size: 20px;
   }
 
-  .register-container input {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
     font-size: 13px;
   }
 
-  .register-container button {
+  input[type="submit"] {
     font-size: 13px;
   }
 }
